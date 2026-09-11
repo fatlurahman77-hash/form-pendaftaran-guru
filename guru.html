@@ -58,14 +58,14 @@
       text-transform: uppercase;
     }
 
-    /* Menghilangkan panah atas/bawah pada input angka (number spinner) */
+    /* Menghilangkan panah atas/bawah pada input angka */
     input[type=number]::-webkit-inner-spin-button, 
     input[type=number]::-webkit-outer-spin-button { 
       -webkit-appearance: none; 
       margin: 0; 
     }
     input[type=number] {
-      -moz-appearance: textfield; /* Untuk Browser Firefox */
+      -moz-appearance: textfield; 
     }
     
     /* Animasi utility */
@@ -236,7 +236,7 @@
         <div class="glass-panel rounded-3xl overflow-hidden shadow-2xl border border-slate-700/50 group hover:border-purple-500/30 transition-colors duration-500">
           <div class="bg-slate-800/80 px-6 sm:px-8 py-5 border-b border-slate-700 flex items-center">
             <span class="bg-purple-500/20 text-purple-400 w-10 h-10 flex items-center justify-center rounded-xl mr-4 border border-purple-500/30 font-bold text-lg shadow-inner">3</span>
-            <h3 class="text-xl font-extrabold text-purple-200 uppercase tracking-widest">Identitas Suami</h3>
+            <h3 class="text-xl font-extrabold text-purple-200 uppercase tracking-widest">Identitas Suami & Ibu</h3>
           </div>
           <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 bg-slate-900/30">
             <div class="bg-blue-900/10 p-6 rounded-2xl border border-blue-800/30 shadow-inner relative overflow-hidden">
@@ -290,7 +290,7 @@
             <label for="fileAkta" class="cursor-pointer block border-2 border-dashed border-slate-600 rounded-2xl p-6 text-center hover:bg-slate-800/80 hover:border-green-500 transition-all duration-300 bg-slate-900/50 group/upload relative overflow-hidden">
               <div class="absolute inset-0 bg-green-500/5 translate-y-full group-hover/upload:translate-y-0 transition-transform duration-300"></div>
               <svg class="w-10 h-10 mx-auto text-slate-500 mb-4 group-hover/upload:text-green-400 transition-colors relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-              <h4 class="font-bold text-green-400 underline underline-offset-4 decoration-green-500/50 text-sm md:text-base mb-2 group-hover/upload:text-green-300 relative z-10">Foto Akta Lahir <span class="text-red-400 no-underline">*</span></h4>
+              <h4 class="font-bold text-green-400 underline underline-offset-4 decoration-green-500/50 text-sm md:text-base mb-2 group-hover/upload:text-green-300 relative z-10">Foto Akta/KTP <span class="text-red-400 no-underline">*</span></h4>
               <p class="text-xs text-slate-500 mb-0 relative z-10">Ketuk untuk pilih dari galeri</p>
               <input type="file" id="fileAkta" accept="image/*" class="hidden" required>
               <div id="preview-akta-container" class="hidden mt-4 text-xs text-green-400 font-bold border border-green-500/30 bg-green-900/20 py-2.5 rounded-lg flex items-center justify-center relative z-10 shadow-inner">
@@ -301,7 +301,7 @@
             <label for="fileFoto" class="cursor-pointer block border-2 border-dashed border-slate-600 rounded-2xl p-6 text-center hover:bg-slate-800/80 hover:border-purple-500 transition-all duration-300 bg-slate-900/50 group/upload relative overflow-hidden">
               <div class="absolute inset-0 bg-purple-500/5 translate-y-full group-hover/upload:translate-y-0 transition-transform duration-300"></div>
               <svg class="w-10 h-10 mx-auto text-slate-500 mb-4 group-hover/upload:text-purple-400 transition-colors relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-              <h4 class="font-bold text-purple-400 underline underline-offset-4 decoration-purple-500/50 text-sm md:text-base mb-2 group-hover/upload:text-purple-300 relative z-10">Pas Foto Anak <span class="text-red-400 no-underline">*</span></h4>
+              <h4 class="font-bold text-purple-400 underline underline-offset-4 decoration-purple-500/50 text-sm md:text-base mb-2 group-hover/upload:text-purple-300 relative z-10">Pas Foto Guru <span class="text-red-400 no-underline">*</span></h4>
               <p class="text-xs text-slate-500 mb-0 relative z-10">Ketuk untuk pilih dari galeri</p>
               <input type="file" id="fileFoto" accept="image/*" class="hidden" required>
               <div id="preview-foto-container" class="hidden mt-4 text-xs text-green-400 font-bold border border-green-500/30 bg-green-900/20 py-2.5 rounded-lg flex items-center justify-center relative z-10 shadow-inner">
@@ -331,8 +331,8 @@
   </div>
 
   <script>
-    // MASUKKAN URL GOOGLE APPS SCRIPT ANDA DI SINI
-    const URL_GAS = "https://script.google.com/macros/s/AKfycbz43Or3D-gGx9zKlMzOAx-aioGOjte_DBwoCxwrAwJiU9ijfM2-rpXJe9GafDo7lZUWjQ/exec";
+    // --- MASUKKAN URL GOOGLE APPS SCRIPT ANDA DI SINI ---
+    const URL_GAS = "MASUKKAN_URL_WEB_APP_ANDA_DISINI";
 
     function showToast(msg, type = 'success') {
       const toast = document.getElementById('toast');
@@ -476,10 +476,9 @@
         }
       } catch (error) {
         console.error(error);
-        // Fallback jika tidak terhubung (Mode Preview)
-        setTimeout(() => {
-          tampilkanSukses("Input data disimulasikan sukses (Mode Preview).");
-        }, 2000);
+        showToast("Terjadi kesalahan koneksi. Pastikan URL sudah benar.", "error");
+        btn.disabled = false;
+        btn.innerText = isEdit ? "PERBARUI DATA INPUT DATA" : "KIRIM FORMULIR INPUT DATA";
       }
     }
 
